@@ -1,0 +1,218 @@
+\documentclass[12pt,a4paper,oneside]{book}
+
+
+% \newcommand{\project}{III}
+\newcommand{\projectname}{
+	Học tăng cường\par
+}
+% \newcommand{\specialized}{Toán Tin}
+% \newcommand{\orientation}{Tin học}
+% \newcommand{\studentname}{Phùng Trọng Hiếu}
+\newcommand{\teachername}{TS. Nguyễn Thị Ngọc Anh}
+% \newcommand{\studentclass}{Toán Tin 01-K60}
+% \newcommand{\studentcode}{20151366}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath} % Required to use mathematical features
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	tmargin=35mm,
+	bmargin=30mm,
+	lmargin=35mm,
+	rmargin=20mm,
+}
+\usepackage{mathptmx} % the replacement of Times New Roman
+\linespread{1.25} % same as 1.5 line spacing in MS Word
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{enumerate}
+\usepackage{indentfirst}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textit{\chaptername\space\thechapter}}
+\rhead{\textit{GVHD: \teachername}}
+% \lfoot{\textit{SVTH: \studentname}}
+% \rfoot{\textit{\studentclass}}
+\cfoot{\textit{\thepage}}
+\fancyfoot[C]{\textit{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\fancypagestyle{plain}{
+	\fancyhf{} % clear all header and footer fields
+	\fancyfoot[C]{\textit{\thepage}} % except the center
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+\usepackage[backend=bibtex,style=ieee, sorting=nty]{biblatex}
+\addbibresource{project_ref.bib}
+
+
+\begin{document}
+\begin{titlepage}
+	\thisfancypage{\setlength{\fboxsep}{10pt}\doublebox}{}
+	\begin{center}
+		\begin{Large}\bfseries
+			TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI\par
+			VIỆN TOÁN ỨNG DỤNG VÀ TIN HỌC\par
+		\end{Large}
+		\vspace{1.5cm}
+		\includegraphics[scale=0.3]{images/logo_bk.jpg}\par
+		\vspace{1.5cm}
+		\begin{LARGE}
+			\MakeUppercase{Báo cáo môn học}\par
+		\end{LARGE}
+		\begin{LARGE}
+			\MakeUppercase{Các mô hình ngẫu nhiên và ứng dụng}\par
+		\end{LARGE}
+		\vspace{1.5cm}
+		\begin{Large}
+			\MakeUppercase{Đề tài: \projectname}
+		\end{Large}
+		\vspace{1cm}
+		\begin{large}
+			% ĐỒ ÁN \project\par
+			% \vspace{0.5cm}
+			% Chuyên ngành: \MakeUppercase{\specialized}\par
+			% \vspace{0.5cm}
+			% Chuyên sâu: \orientation\par
+			\begin{flushleft}
+				\hspace{2cm}
+				Nhóm sinh viên thực hiện: \textbf{PHÙNG TRỌNG HIẾU}\par
+				\hspace{2cm}
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space
+				\textbf{CAO ĐĂNG SAO}\par
+				\hspace{2cm}
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space
+				\textbf{NINH NGỌC LUYÊN}\par
+				\hspace{2cm}
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space\space\space\space\space\space
+				\space
+				\textbf{NGUYỄN MẠNH CƯỜNG}\par
+				\vspace{0.5cm}
+				\hspace{2cm}
+				Giảng viên hướng dẫn: \MakeUppercase{\textbf{\teachername}}\par
+				% \hspace{2.5cm}
+				% Sinh viên thực hiện: \MakeUppercase{\studentname}\par
+				% \hspace{2.5cm}
+				% Lớp: \studentclass\par
+				% \hspace{2.5cm}
+				% MSSV: \studentcode\par
+			\end{flushleft}
+		\end{large}
+		\vfill
+		\begin{large}\bfseries
+			HÀ NỘI - \the\year\par
+		\end{large}
+	\end{center}
+\end{titlepage}
+
+\frontmatter
+
+\chapter*{\centering\LARGE\MakeUppercase{Nhận xét của giảng viên hướng dẫn}}
+\begin{enumerate}
+	\item Mục đích và nội dung của đồ án:\par
+	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+	\item Kết quả đạt được:\par
+	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+	\item Ý thức làm việc của sinh viên:\par
+	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+\end{enumerate}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+	\begin{center}
+		Hà Nội, ngày\hspace{5mm}tháng\hspace{5mm}năm\par
+		Giảng viên hướng dẫn\par
+		\textit{(Ký và ghi rõ họ tên)}
+	\end{center}
+\end{minipage}
+
+\renewcommand{\listfigurename}{Danh mục hình vẽ}
+\listoffigures
+% \listoftables
+
+\chapter{Lời cảm ơn}
+% Để hoàn thành được đồ án: "Mô hình mạng nơ-ron học sâu và bài toán phát hiện vật thể trong ảnh",
+% lời đầu tiên em xin chân thành cảm ơn thầy giáo hướng dẫn \teachername\space
+% đã tận tình hướng dẫn em trong suốt thời gian thực hiện.
+
+% Em cũng xin chân thành cảm ơn thầy giáo Lê Chí Ngọc đã cho em nhiều lời khuyên quý báu
+% cùng các thầy cô trong viện Toán ứng dụng và Tin học Trường Đại học Bách Khoa Hà Nội
+% đã truyền đạt những kinh nghiệm, kỹ năng, kiến thức nền tảng để giúp em hoàn thành đồ án môn học này.
+
+% Xin cảm ơn các anh, các chị của phòng Machine Learning tại Công Ty TNHH Công Nghệ Cao SkymapGlobal Việt Nam
+% đã hỗ trợ em về trang thiết bị và công nghệ.
+
+% Cảm ơn tất cả các bạn trong tập thể lớp Toán Tin 1 và 2 - K60
+% đã cho mình những ý kiến đóng góp và giúp đỡ trong quá trình làm đồ án.
+
+% Tuy đã có những cố gắng nhất định, tìm hiểu và tiếp cận với đề tài
+% nhưng do trình độ và thời gian hạn chế
+% nên đồ án này không thể tránh khỏi các thiếu sót.
+% Rất mong nhận được những nhận xét góp ý và sửa sai của thầy giáo hướng dẫn,
+% các thầy cô, các đồng nghiệp và các bạn để quyển đồ án này trở nên hoàn thiện hơn.
+
+Em xin chân thành cảm ơn!
+
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+	\begin{center}
+		Hà Nội, ngày \the\day\space tháng \the\month\space năm \the\year\par
+		Trưởng nhóm\par
+		Phùng Trọng Hiếu
+	\end{center}
+\end{minipage}
+
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/introduction}
+
+\include{chapters/chapter02}
+
+\include{chapters/chapter03}
+
+\include{chapters/chapter04}
+
+\include{chapters/chapter05}
+
+\include{chapters/conclusion}
+
+\backmatter
+
+% \appendix
+% \include{chapters/appendix}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
