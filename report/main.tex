@@ -55,6 +55,32 @@
 	\renewcommand{\footrulewidth}{0pt}
 }
 
+\newtheorem{theorem}{Định lý}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Hệ quả}
+\newtheorem{cy}[theorem]{Chú ý} 
+% \newtheorem{definition}[theorem]{Định nghĩa}%[section]
+\newtheorem{bd}[theorem]{Bổ đề} 
+\newtheorem{bt}[theorem]{Bài toán}
+\newtheorem{md}[theorem]{Mệnh đề} 
+\newtheorem{remark}[theorem]{Nhận xét} 
+\newtheorem{Bt}[theorem]{Bài toán} 
+\newtheorem{example}[theorem]{Ví dụ} 
+\newtheorem{hq}[theorem]{Hệ quả}
+\newtheorem{kh}[theorem]{Kí hiệu}
+\newtheorem{cor}[theorem]{Hệ quả}
+\newtheorem{dfn}[theorem]{Định nghĩa}%[section]
+\newtheorem{lem}[theorem]{Bổ đề} 
+\newtheorem{prop}[theorem]{Mệnh đề} 
+\newtheorem{dl}[theorem]{Định lý}
+\newtheorem{vd}[theorem]{\bf Ví dụ} 
+\newtheorem{nx}[theorem]{ Nhận xét} 
+\newtheorem{dn}[theorem]{\bf Định nghĩa} 
+\newtheorem{tc}[theorem]{\bf Tính chất} 
+\newtheorem{ch}[theorem]{\bf Câu hỏi} 
+\newtheorem{ttt}[theorem]{\bf Thuật toán} 
+\newtheorem{gt}[theorem]{\bf Giả thiết} 
+
 \usepackage[backend=bibtex,style=ieee, sorting=nty]{biblatex}
 \addbibresource{project_ref.bib}
 
@@ -89,40 +115,29 @@
 			% Chuyên sâu: \orientation\par
 			\begin{flushleft}
 				\hspace{2cm}
-				Nhóm sinh viên thực hiện: \textbf{PHÙNG TRỌNG HIẾU}\par
-				\hspace{2cm}
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space
-				\textbf{CAO ĐĂNG SAO}\par
-				\hspace{2cm}
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space
-				\textbf{NINH NGỌC LUYÊN}\par
-				\hspace{2cm}
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space\space\space\space\space\space
-				\space
-				\textbf{NGUYỄN MẠNH CƯỜNG}\par
+				Giảng viên hướng dẫn: \MakeUppercase{\textbf{\teachername}}\par
 				\vspace{0.5cm}
 				\hspace{2cm}
-				Giảng viên hướng dẫn: \MakeUppercase{\textbf{\teachername}}\par
+				Nhóm sinh viên thực hiện:\par
+				% \textbf{PHÙNG TRỌNG HIẾU}\par
+				% \hspace{2cm}
+				
+				% \textbf{CAO ĐĂNG SAO}\par
+				% \hspace{2cm}
+				% 				\textbf{NINH NGỌC LUYÊN}\par
+				% \hspace{2cm}
+				
+				% \textbf{NGUYỄN MẠNH CƯỜNG}\par
+				\begin{table}[H]
+					\hspace{4.5cm}
+					\begin{tabular}{ll}
+					\textbf{PHÙNG TRỌNG HIẾU}  & \textbf{20151366} \\
+					\textbf{CAO ĐĂNG SAO}      & \textbf{20163476} \\
+					\textbf{NINH NGỌC LUYÊN}   & \textbf{20142747} \\
+					\textbf{NGUYỄN MẠNH CƯỜNG} & \textbf{20140596}
+					\end{tabular}
+				\end{table}
+
 				% \hspace{2.5cm}
 				% Sinh viên thực hiện: \MakeUppercase{\studentname}\par
 				% \hspace{2.5cm}
@@ -140,32 +155,33 @@
 
 \frontmatter
 
-\chapter*{\centering\LARGE\MakeUppercase{Nhận xét của giảng viên hướng dẫn}}
-\begin{enumerate}
-	\item Mục đích và nội dung của đồ án:\par
-	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
-	\item Kết quả đạt được:\par
-	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
-	\item Ý thức làm việc của sinh viên:\par
-	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
-\end{enumerate}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-	\begin{center}
-		Hà Nội, ngày\hspace{5mm}tháng\hspace{5mm}năm\par
-		Giảng viên hướng dẫn\par
-		\textit{(Ký và ghi rõ họ tên)}
-	\end{center}
-\end{minipage}
+% \chapter*{\centering\LARGE\MakeUppercase{Nhận xét của giảng viên hướng dẫn}}
+% \begin{enumerate}
+% 	\item Mục đích và nội dung của đồ án:\par
+% 	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+% 	\item Kết quả đạt được:\par
+% 	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+% 	\item Ý thức làm việc của sinh viên:\par
+% 	\dotfill\par\dotfill\par\dotfill\par\dotfill\par\dotfill
+% \end{enumerate}
+% \hfill
+% \begin{minipage}[t]{0.48\textwidth}
+% 	\begin{center}
+% 		Hà Nội, ngày\hspace{5mm}tháng\hspace{5mm}năm\par
+% 		Giảng viên hướng dẫn\par
+% 		\textit{(Ký và ghi rõ họ tên)}
+% 	\end{center}
+% \end{minipage}
 
 \renewcommand{\listfigurename}{Danh mục hình vẽ}
 \listoffigures
 % \listoftables
 
 \chapter{Lời cảm ơn}
-% Để hoàn thành được đồ án: "Mô hình mạng nơ-ron học sâu và bài toán phát hiện vật thể trong ảnh",
-% lời đầu tiên em xin chân thành cảm ơn thầy giáo hướng dẫn \teachername\space
-% đã tận tình hướng dẫn em trong suốt thời gian thực hiện.
+Để hoàn thành được báo cáo môn học: "Các mô hình ngẫu nhiên và ứng dụng",
+lời đầu tiên chúng em xin chân thành cảm ơn cô giáo hướng dẫn \teachername\space
+đã truyền đạt những kinh nghiệm, kỹ năng, kiến thức nền tảng
+để giúp chúng em hoàn thành báo cáo môn học này.
 
 % Em cũng xin chân thành cảm ơn thầy giáo Lê Chí Ngọc đã cho em nhiều lời khuyên quý báu
 % cùng các thầy cô trong viện Toán ứng dụng và Tin học Trường Đại học Bách Khoa Hà Nội
@@ -174,16 +190,16 @@
 % Xin cảm ơn các anh, các chị của phòng Machine Learning tại Công Ty TNHH Công Nghệ Cao SkymapGlobal Việt Nam
 % đã hỗ trợ em về trang thiết bị và công nghệ.
 
-% Cảm ơn tất cả các bạn trong tập thể lớp Toán Tin 1 và 2 - K60
-% đã cho mình những ý kiến đóng góp và giúp đỡ trong quá trình làm đồ án.
+Cảm ơn tất cả các bạn trong lớp
+đã cho nhóm mình những ý kiến đóng góp và giúp đỡ trong quá trình làm báo cáo.
 
-% Tuy đã có những cố gắng nhất định, tìm hiểu và tiếp cận với đề tài
-% nhưng do trình độ và thời gian hạn chế
-% nên đồ án này không thể tránh khỏi các thiếu sót.
-% Rất mong nhận được những nhận xét góp ý và sửa sai của thầy giáo hướng dẫn,
-% các thầy cô, các đồng nghiệp và các bạn để quyển đồ án này trở nên hoàn thiện hơn.
+Tuy đã có những cố gắng nhất định, tìm hiểu và tiếp cận với đề tài
+nhưng do trình độ và thời gian hạn chế
+nên báo cáo này không thể tránh khỏi các thiếu sót.
+Rất mong nhận được những nhận xét góp ý và sửa sai của cô giáo hướng dẫn,
+các thầy cô, và các bạn để quyển báo cáo này trở nên hoàn thiện hơn.
 
-Em xin chân thành cảm ơn!
+Nhóm chúng em xin chân thành cảm ơn!
 
 \hfill
 \begin{minipage}[t]{0.48\textwidth}

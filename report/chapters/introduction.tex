@@ -1,3 +1,29 @@
 \chapter{Giới thiệu}
 \label{ch:intro}
-
+	Xã hội ngày càng hiện đại, các kỹ thuật công nghệ ngày càng phát triển, đi cùng với nó là các nghiên cứu phát triển không ngừng về lĩnh vực trí tuệ nhân tạo và học máy, cho ra đời các hệ thống máy móc thông minh ứng dụng rộng rãi trong hầu hết các lĩnh vực đời sống như máy truy tìm dữ liệu, chẩn đoán y khoa, phát hiện thẻ tín dụng giả, phân tích thị trường chứng khoán, phân loại chuỗi DNA, nhận dạng tiếng nói và chữ viết, ... đặc biệt là trong lĩnh vực điều khiển.
+	
+	Chúng ta có rất nhiều loại thuật toán học như học có giám sát, học không có giám sát, học tăng cường, ... Mỗi loại thuật toán thích ứng với từng loại bài toán cụ thể. Trong báo cáo này, chúng ta sẽ nghiên cứu và tìm hiểu các vấn đề liên qua đến phương pháp học tăng cường (\textit{Reinforcement Learning}). Đây là một thuật toán học có khả năng giải quyết được những bài toán thực tế khá phức tạp trong đó có sự tương tác giữa hệ thống và môi trường. Với những tình huống môi trường không chỉ đứng yên, cố định mà thay đổi phức tạp thì các phương pháp học truyền thống không còn đáp ứng được mà phải sử dụng phương pháp học tăng cường. Những bài toán với môi trường thay đổi trong thực tế là không nhỏ và ứng dụng nhiều trong các lĩnh lực quan trọng.
+	
+	Môi trường thường được biểu diễn dưới dạng một quá trình quyết định Markov trạng thái hữu hạn (\textit{Markov Decision Process - MDP}), và các thuật toán học tăng cường cho ngữ cảnh này có liên quan nhiều đến các kỹ thuật quy hoạch động. Các xác suất chuyển trạng thái và các xác suất thu lợi trong MDP thường là ngẫu nhiên nhưng lại là tĩnh trong quá trình của bài toán. MDP được biết đến sớm nhất \cite{Belman1957} là vào những năm 1950 (cf. Bellman 1957). Một cốt lõi của nghiên cứu về quá trình ra quyết định Markov là từ kết quả của cuốn sách \cite{Howard1960} của Ronald A.Howard xuất bản năm 1960, (\textit{Quy hoạch động và quá trình Markov}). Lý thuyết MDP được nghiên cứu bởi nhiều các nhà toán học, như \cite{Bertsekas2005} Bertsekas (2005) (\textit{Quy hoạch động và điều khiển tối ưu}), \cite{Puterman1994} Puterman (1994) (\textit{Quá trình quyết định Markov}). MDP cũng được nghiên cứu dưới tiêu đề điều khiển tối ưu ngẫu nhiên, trong đó các phương pháp điều khiển tối ưu thích ứng có liên quan chặt chẽ nhất đến việc học tăng cường.
+	
+		Ví dụ sớm nhất mà có thể thấy được trong đó việc học tăng cường được thảo luận bằng cách sử dụng hình thức MDP là Andreae’s (1969b) mô tả một quan điểm thống nhất về máy học. Witten and Corbin (1973) đã thử nghiệm hệ thống học tăng cường sau đó được phân tích bởi Witten (1977, 1976a) bằng cách sử dụng hình thức MDP. Mặc dù ông không đề cập rõ ràng về MDPs, Werbos (1977) đã đề xuất các phương pháp giải xấp xỉ cho các bài toán điều khiển tối ưu ngẫu nhiên có liên quan tới các phương pháp học tăng cường hiện đại (xem thêm Werbos, 1982, 1987, 1988, 1989, 1992). Chúng được sử dụng trong rất nhiều các lĩnh vực khác nhau, bao gồm robot, điều khiển tự động, kinh tế và chế tạo.\\
+	
+		
+	Nội dung của báo cáo này được trình bày trong bốn chương. 
+\begin{itemize}
+	\item Chương 2: Quá trình Markov.
+	
+	Chương này trình bày một số định nghĩa về Xích Markov và quá trình Markov.
+	
+	\item Chương 3: Quá trình quyết định Markov.
+	
+	Chương này trình này khái niệm quá trình quyết định Markov; trình bày về bài toán Markov và các phần tử của bài toán Markov; phương trình tối ưu Bellman cho bài toán MDP. 
+	
+	\item Chương 4: Thuật toán Q-Learning và Deep Q-Learning.
+	
+	Chương này giới thiệu và đưa ra thuật toán Q-Learning và Deep Q-Learning; sự hội tụ của thuật toán cùng với một số mô hình bài toán.
+	
+	\item Chương 5: Một số bài toán và ứng dụng cụ thể.
+	
+	Chương này trình bày hai ví dụ cụ thể là bài toán chiếc taxi thông minh và bài toán cân bằng con lắc ngược được giải bằng thuật toán Q-Learning và Deep Q-Learning.
+\end{itemize}
