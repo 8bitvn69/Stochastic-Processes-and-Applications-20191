@@ -88,7 +88,7 @@ Vậy, ta có tổng cộng $5 \times 5=25$ vị trí mà chiếc taxi có thể
 Tổng số trạng thái có thể có của môi trường sẽ là
 $5 \times 5 \times 5 \times 4=500$ trạng thái.
 
-\subsubsection{Hành động}
+\subsubsection{Không gian hành động}
 Tại mỗi thời điểm, chiếc taxi (agent của bài toán)
 sẽ nằm ở 1 trong tổng 500 trạng thái,
 và nó sẽ thực hiện một hành động tương ứng với trạng thái hiện có.
@@ -120,7 +120,8 @@ của thư viện Gym được cung cấp bởi OpenAI.
 
 Chiếc taxi sẽ được huấn luyện trong 100000 episode
 thông qua việc tương tác với môi trường.
-Một vài kết quả được minh họa như trong Hình~\ref{fig:training_episode_step},
+Một vài kết quả trong quá trình huấn luyện được minh họa như trong
+Hình~\ref{fig:training_episode_step},
 \ref{fig:training_episode_penalty} và \ref{fig:training_episode_reward}.
 
 \begin{figure}[H]
@@ -159,3 +160,91 @@ và thực hiện việc chọn đường đi khá "thông minh".
 
 \section{Bài toán cân bằng con lắc ngược}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{cartpole.png}
+    \caption{Hình minh họa bài toán cân bằng con lắc ngược.}
+    \label{fig:cartpole}
+\end{figure}
+
+\subsection{Bài toán}
+Ta có một con lắc ngược được gắn phía trên
+một chiếc xe đẩy bằng một khớp nối có thể quay.
+Chiếc xe được đặt trên một đường ray không có ma sát
+và chỉ có thể di chuyển sang trái hoặc sang phải.
+Ở trạng thái khởi đầu, con lắc được đặt thẳng đứng,
+hay nói cách khác con lắc và đường thẳng vuông góc
+với đường ray tạo thành một góc 0\degree.
+Mục tiêu của bài toán là không để cho con lắc bị đổ
+bằng cách tăng hoặc giảm vận tốc của xe đẩy.
+Trò chơi sẽ kết thúc khi:
+\begin{itemize}
+    \item con lắc bị "đổ"
+    (góc của con lắc nhỏ hơn -12\degree hoặc lớn hơn 12\degree),
+    \item hoặc vị trí của xe đẩy năm ngoài đoạn $[-2.4, 2.4]$
+    (tâm của chiếc xe đẩy đi ra ngoài khung nhìn),
+    \item hoặc số bước vượt quá 200.
+\end{itemize}
+
+\subsection{Mô hình hóa bài toán}
+\subsubsection{Phần thưởng}
+Hệ chuyển động sẽ nhận được phần thưởng +1 sau mỗi bước
+(bao gồm cả bước kết thúc).
+
+\subsubsection{Không gian trạng thái}
+Mỗi trạng thái của hệ sẽ được cấu tạo bởi 4 thành phần:
+\begin{itemize}
+    \item Vị trí xe đẩy
+    \item Vận tốc xe đẩy
+    \item Góc của con lắc ngược
+    \item Vận tốc ở đỉnh con lắc
+\end{itemize}
+
+Miền giá trị của các thành phần này được minh họa như trong Bảng~\ref{tab:states}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{Chỉ số} & \multicolumn{1}{c|}{Trạng thái} & \multicolumn{1}{c|}{Min} & \multicolumn{1}{c|}{Max} \\ \hline
+    0                            & Vị trí xe đẩy                   & -2.4                     & 2.4                      \\ \hline
+    1                            & Vận tốc xe đẩy                  & -Inf                     & Inf                      \\ \hline
+    2                            & Góc của con lắc ngược           & $\sim$-41.8\degree       & $\sim$41.8\degree        \\ \hline
+    3                            & Vận tốc ở đỉnh con lắc          & -Inf                     & Inf                      \\ \hline
+    \end{tabular}
+    \caption{Các trạng thái của hệ.}
+    \label{tab:states}
+\end{table}
+
+\subsubsection{Không gian hành động}
+Có tổng cộng 2 hành động để di chuyển con lắc,
+đó là đẩy xe sang trái và sang phải.
+
+\subsection{Giải quyết bài toán}
+Với số trạng thái quá lớn, việc sử dụng giải thuật Q-Learning
+như trong bài toán "Chiếc taxi thông minh" trước đó trở nên
+bất khả thi về không gian lưu trữ.
+Việc sử dụng một mạng nơ-ron nhân tạo (Artificial Neural Network)
+thay thế cho bảng Q-Table có vẻ phù hợp hơn rất nhiều.
+
+Hệ xe đẩy con lắc sẽ được huấn luyện trong 50000 episode
+thông qua việc tương tác với môi trường.
+Một vài kết quả trong quá trình huấn luyện được minh họa như trong
+Hình~\ref{fig:cartpole_episode_reward} và \ref{fig:cartpole_running_avg_reward}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{cartpole_episode_reward.png}
+    \caption{Số phần thưởng hệ nhận được tại mỗi episode.}
+    \label{fig:cartpole_episode_reward}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{cartpole_running_avg_reward.png}
+    \caption{Số phần thưởng trung bình hệ nhận được qua các episode.}
+    \label{fig:cartpole_running_avg_reward}
+\end{figure}
+
+Dựa vào các biểu đồ, ta có thể thấy hệ dễ dàng đạt được
+số điểm tối đa, 200 điểm, sau khoảng 10000 episode.
