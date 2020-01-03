@@ -13,7 +13,7 @@ Một quá trình quyết định Markov (\textit{Markov Decision Process}) là 
  Pr(S_{t+1}=j|S_0,A_0,...,S_t,A_t)=Pr(S_{t+1}=j|S_t,A_t);
  \end{align*}
  \item $R_a(s,s')$ là phần thưởng nhận được khi chọn hành động $s$ để chuyển trạng thái từ $s$ sang $s'$;
- \item $\gamma \in [0,1]$ là hệ số chiết khấu, đại diện cho sự khác biệt giữa các phần thưởng trong tương lai và phần thưởng hiện tại.
+ \item $\gamma \in [0,1]$ là hệ số suy giảm, đại diện cho sự khác biệt giữa các phần thưởng trong tương lai và phần thưởng hiện tại.
 \end{itemize}
 \begin{figure}[ht]
     \centering
@@ -53,7 +53,7 @@ Trong quá trình quyết định Markov, mỗi chiến lược xác định đ�
 \section{Bài toán quyết định Markov}
 \subsection{Phát biểu bài toán}
 Bài toán quyết định Markov là bài toán học từ các tác động để đạt được mục đích. Người học và người ra quyết định được gọi là tác tử. Tất cả những gì mà chúng tương tác với, bao gồm mọi thứ bên ngoài tác tử được gọi là môi trường. Các tác động thực hiện một cách liên tục, tác tử lựa chọn hành động, môi trường đáp ứng lại các hành động đó và chuyển từ trạng thái hiện thời sang trạng thái mới. Môi trường cũng đem lại các mục tiêu, các giá trị hằng số mà tác tử cố gắng cực đại hóa qua thời gian. Một đặc tả hoàn thiện về môi trường được coi là một "nhiệm vụ", một thực thể của bài toán quyết định Markov.\\
-Tóm lại, bài toán quyết định Markov liên quan đến lớp bài toán trong đó một tác tử rút ra kết luận trong khi phân tích một chuỗi các hàng động của nó cùng với tín hiệu vô hướng được đưa ra bởi môi trường.\\
+Tóm lại, bài toán quyết định Markov liên quan đến lớp bài toán trong đó một tác tử rút ra kết luận trong khi phân tích một chuỗi các hành động của nó cùng với tín hiệu vô hướng được đưa ra bởi môi trường.\\
 Trong khái niệm chung này, có thể thấy hai đặc tính quan trọng:
 \begin{itemize}
 \item Tác tử tương tác với môi trường và cặp "tác tử + môi trường" tạo thành một hệ thống động.
@@ -68,7 +68,7 @@ Lược đồ tương tác tác tử-môi trường như sau:\\
     \label{fig:tactumoitruong}
 \end{figure}
 
-Trong lược đồ trên, tác tử và môi trường tác động lẫn nhau tại mỗi bước trong chuỗi các bước thời gian rời rạc, $t=0,1,2,3,...$. Tại mỗi bước thời gian $t$, tác tử nhận một số biểu diễn về trạng thái của môi trường, $s_t \in S$, với $S$ là tập các trạng thái có thể, và trên đó lựa chọn một hàng động $a_t \in A(s_t)$, với $A(s_t)$ là tập các hành động trong trạng thái $s_t$. Mỗi bước thời gian tiếp theo, tác tử nhận một giá trị tăng cường $r_{t+1}\in R$ và tự nó tìm ra một trạng thái mới $S_{t+1}$.
+Trong lược đồ trên, tác tử và môi trường tác động lẫn nhau tại mỗi bước trong chuỗi các bước thời gian rời rạc, $t=0,1,2,3,...$. Tại mỗi bước thời gian $t$, tác tử nhận một số biểu diễn về trạng thái của môi trường, $s_t \in S$, với $S$ là tập các trạng thái có thể, và trên đó lựa chọn một hành động $a_t \in A(s_t)$, với $A(s_t)$ là tập các hành động trong trạng thái $s_t$. Mỗi bước thời gian tiếp theo, tác tử nhận một giá trị tăng cường $r_{t+1}\in R$ và tự nó tìm ra một trạng thái mới $S_{t+1}$.
 \newline \medskip
 Tại mỗi bước tác tử thực hiện ánh xạ từ các trạng thái đến các hành động có thể lựa chọn. Phép ánh xạ này được gọi là chiến lược của tác tử, kí hiệu là $\pi_t$ với $\pi_t(s,a)$ là xác suất thực hiện hành động $a_t=a$ khi $s_t=s$. 
 
@@ -93,7 +93,7 @@ R(t)=r_{t}+r_{t+1}+...+r_{t+K-1}
 \begin{align*}
 R(t)= \sum_{k=0}^{\infty} \gamma ^{k} r_{t+k}.
 \end{align*}
-Hệ số $\gamma$ cho phép xác định mức độ ảnh hưởng của những bước chuyển trạng thái tiếp theo đến giá trị phản hồi tại thời điểm đang xét. Gái trị của $\gamma$ cho phép điều chỉnh giai đoạn tác tử lấy các hàm tăng cường. Nếu $\gamma =0$, thì tác tử chỉ xem xét mục tiêu gần nhất, giá trị $\gamma$ càng gần với 1 thì tác tử sẽ quan tâm đến các mục tiêu xa hơn trong tương lai.
+Hệ số $\gamma$ cho phép xác định mức độ ảnh hưởng của những bước chuyển trạng thái tiếp theo đến giá trị phản hồi tại thời điểm đang xét. Giá trị của $\gamma$ cho phép điều chỉnh giai đoạn tác tử lấy các hàm tăng cường. Nếu $\gamma =0$, thì tác tử chỉ xem xét mục tiêu gần nhất, giá trị $\gamma$ càng gần với 1 thì tác tử sẽ quan tâm đến các mục tiêu xa hơn trong tương lai.
 Như vậy, thực chất bài toán quyết định Markov trong trường hợp này chính là việc lựa chọn các hành động để làm cực đại biểu thức R:
 \begin{align*}
 R=r_{0}+\gamma r_{1}+\gamma^{2}r_{2}+... \textit{với} 0<\gamma <1.
