@@ -54,7 +54,7 @@ là tốt nhất mà tác tử có thể làm được từ trạng thái s. Dĩ
 đúng chiến lược mà chúng đã được biết (việc tối đa hóa các hành động ở phương trình \ref{eq:Vn}). 
 Hiển nhiên là các giá trị Q-value ban đầu, $Q_{0}(s,a)$, cho tất cả các trạng thái và hành động đã được giả thiết. Ngoài ra ta có thêm 
 giải thiết một bảng tra cứu (look-up table) biểu diễn cho $Q_n(s,a)$. 
-Theo  \cite{Watkins1989} cho thấy Q-learning có thể không hội tụ chính xác cho các biểu diễn khác.\\
+Theo ~\cite{Watkins1989} cho thấy Q-learning có thể không hội tụ chính xác cho các biểu diễn khác.\\
 \indent Phân tích thuật toán Q-learning, ta có các bước như sau:
 \begin{itemize}
     \item 1. Khởi tạo bảng Q với các số 0 và giá trị Q thành các hằng số tùy ý.
@@ -85,7 +85,7 @@ chuỗi liên tục, đó là $y$ của một quá trình không cần phải l�
     \end{equation} 
     thì $Q_n(s,a) \to Q^{*}(s,a)$ khi $n \to \infty, \forall x, a,$ với xác suất bằng 1.
 \end{theorem}
-Chứng minh tính đúng đắn của định lý \ref{th:Conver} xem chi tiết trong \cite{Watkins1992}.
+Chứng minh tính đúng đắn của định lý \ref{th:Conver} xem chi tiết trong~\cite{Watkins1992}.
 \section{Deep Q-Learning}
 Mục đích của bài toán là chọn ra hành động (action) thích hợp cho một trạng thái nào đó (state) 
 nào đó. Hay nói cách khác, với state là đầu vào và cần đầu ra là một hành động. 
@@ -126,8 +126,8 @@ vì các states liên tục thường giống nhau hoặc có tính tuyến tín
 Deep Q-Learning thực hiện các bước sau:
 \begin{itemize}
     \item 1. Enviroment đưa vào mạng một state s; đầu ra là các Q-value của các actions tương ứng.
-    \item 2. Agent chọn action bằng một Policy và thực hiện action đó.
-    \item 3. Environment trả lại state s' và reward r là kết quả của action a và lưu lại experience s, a, r, s'.
+    \item 2. Agent chọn action bằng một Policy và thực hiện action a đó.
+    \item 3. Environment trả lại state s' cùng với reward r tương ứng và lưu lại experience s, a, r, s'.
     \item 4. Thực hiện sample các experience thành một vài batches và tiến hành luyện mạng.
     \item 5. Lặp lại đến khi kết thúc M episodes.
 \end{itemize}
