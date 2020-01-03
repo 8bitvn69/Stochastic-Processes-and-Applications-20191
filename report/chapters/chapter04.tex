@@ -15,14 +15,13 @@ hiện các bước hành động để tối ưu hóa chính chiến lược ch
 sử dụng một chiến lược chọn hành động để thực hiện các hành động nhưng với mục đích là để tối ưu
 hóa một chiến lược chọn hành động khác.
 \subsection{Thuật toán Q-Learning}
-Cho một chiến lược (policy) $\pi$, ta viết lại công thức ( trình bày ở chương 3) về Q-value ( hay là giá trị hành động)
+Cho một chiến lược (policy) $\pi$, ta viết lại công thức (trình bày ở chương 3) về Q-value (hay là giá trị hành động)
 như sau:
 \begin{equation} 
     \label{eq:Qvalue}
     Q^{\pi}(s,a) = R(s,a) + \gamma \sum_{s'\in \S} P_{ss^{'}}^{a}V^{\pi}(s').
 \end{equation}
-Trong công thức \ref{eq:Qvalue} $Q^{\pi}(s,a)$ là Q-value khi thực hiện hành động a tại trạng thái s theo chiến lược $\pi$; $R(s,a)$ là phần thưởng nhận được ; $s^{'}$ là trạng thái kế tiếp
-. $\gamma$ là hệ số giảm (discount), đảm bảo "gần" đích Q-value càng lớn.\\
+Trong công thức \ref{eq:Qvalue}, $Q^{\pi}(s,a)$ là Q-value khi thực hiện hành động a tại trạng thái s theo chiến lược $\pi$; $R(s,a)$ là phần thưởng nhận được; $s^{'}$ là trạng thái kế tiếp. $\gamma$ là hệ số giảm (discount rate), đảm bảo "gần" đích Q-value càng lớn.\\
 Nói các khác, Q-value là hàm giá trị hành động mong đợi cho việc thực hiện hành động $a$ ở trạng thái $s$ và tuân theo chính sách $\pi$ sau đó. 
  Mục đích của Q-learning là ước lượng Q-values cho một chiến lược tối ưu. Để tiện lợi, ta định nghĩa như sau 
  $Q^{*}(s,a) \equiv Q^{\pi^{*}}(s,a), \forall s, a$. Thật đơn giản để chỉ ra rằng
@@ -89,10 +88,10 @@ chuỗi liên tục, đó là $y$ của một quá trình không cần phải l�
 Chứng minh tính đúng đắn của định lý \ref{th:Conver} xem chi tiết trong \cite{Watkins1992}.
 \section{Deep Q-Learning}
 Mục đích của bài toán là chọn ra hành động (action) thích hợp cho một trạng thái nào đó (state) 
-nào đó. Hay nói cách khác, chúng ta từ state là đầu vào và cần một đầu ra là một hành động. 
+nào đó. Hay nói cách khác, với state là đầu vào và cần đầu ra là một hành động. 
 Công việc đó sẽ được thực hiện qua một mang nơ-ron (Neural Network-NN). Những gì ta cần làm 
 chỉ là bỏ đi  bảng tra cứu lookup table $Q(s,a)$ và thay thế bằng một mạng nơ-ron đơn giản. 
-Điều đó được mô tả trong hình \ref{fig:qlearning}.
+Điều đó được mô tả trong Hình \ref{fig:qlearning}.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{qvsdeepQlearning.png}
@@ -101,7 +100,7 @@ chỉ là bỏ đi  bảng tra cứu lookup table $Q(s,a)$ và thay thế bằng
 \end{figure}
 \subsubsection{Hàm mất mát}
 Mục đích của ta là bắt mạng học được cách ước lượng Q-Value cho các hành động một cách chính xác nên đương nhiên 
-hàm mất mát phải tính được sai số giữa Q-value thực tế và dự đoán. Hàm mất mát định nghĩa từ dưới dạng đầy đủ 
+hàm mất mát phải tính được sai số giữa Q-value thực tế và dự đoán. Hàm mất mát định nghĩa dưới dạng đầy đủ 
 như sau:
 \begin{equation}
     \label{eq:lossf}
@@ -116,7 +115,7 @@ vì các states liên tục thường giống nhau hoặc có tính tuyến tín
  Sau đó thực hiện sampling thành các batch nhỏ đưa vào mạng nơ-ron học. Việc này giúp đa 
  dạng hóa input và tránh mạng nơ-ron bị overfitting.
  \subsubsection{Mô hình}
- Mô hình đầy đủ của Deep Q-Learning được mô tả trong hình \ref{fig:deepqlearning}
+ Mô hình đầy đủ của Deep Q-Learning được mô tả trong Hình \ref{fig:deepqlearning}
  \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{model.png}
@@ -128,7 +127,7 @@ Deep Q-Learning thực hiện các bước sau:
 \begin{itemize}
     \item 1. Enviroment đưa vào mạng một state s; đầu ra là các Q-value của các actions tương ứng.
     \item 2. Agent chọn action bằng một Policy và thực hiện action đó.
-    \item 3. Environment trả lại state s' và reward r là kết quả của action a và lưu experience tuple [s, a, r, s'] vào memory
-    \item 4. Thực hiện sample các experience thành một vài batches và tiến hành luyện mạng
-    \item 5. Lặp lại đến khi kết thúc M episodes
+    \item 3. Environment trả lại state s' và reward r là kết quả của action a và lưu lại experience s, a, r, s'.
+    \item 4. Thực hiện sample các experience thành một vài batches và tiến hành luyện mạng.
+    \item 5. Lặp lại đến khi kết thúc M episodes.
 \end{itemize}

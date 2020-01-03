@@ -1,6 +1,6 @@
 \chapter{Quá trình quyết định Markov - MDP}
 \label{ch:03}
-Quá trình quyết định Markov (MDP) cung cấp một nền tảng toán học cho việc mô hình hóa việc ra quyết định trong các tinh huống mà kết quả là một phần ngẫu nhiên và một phần dưới sự điều khiển của một người ra quyết định. MDP rất hữu dụng cho việc học một loạt bài toán tối ưu hóa được giải quyết thông qua quy hoạch động và học tăng cường. MDP được sử dụng rất nhiều các lĩnh vực khác nhau, bao gồm robot, điều khiển tự động, kinh tế, chế tạo,... Trong phần này, chúng ta sẽ trình bày về quá trình quyết định Markov trong đó tập trung vào các khái niệm của quá trình Markov có số bước vô hạn và hữu hạn. Kiến thức trong phần này được tổng hợp từ các tài liệu \cite{Belman1957}, \cite{Sutton1999} và \cite{Puterman1994}.
+Quá trình quyết định Markov (MDP) cung cấp một nền tảng toán học cho việc mô hình hóa ra quyết định. Mà kết quả là một phần ngẫu nhiên hoặc dưới sự điều khiển của một người ra quyết định. MDP rất hữu dụng cho việc học một loạt bài toán tối ưu, vì được giải quyết thông qua quy hoạch động và học tăng cường. MDP được sử dụng rất nhiều các lĩnh vực khác nhau, bao gồm robot, điều khiển tự động, kinh tế, chế tạo,... Trong phần này, chúng ta sẽ trình bày về quá trình quyết định Markov trong đó tập trung vào các khái niệm của quá trình Markov có số bước vô hạn và hữu hạn. Kiến thức trong phần này được tổng hợp từ các tài liệu \cite{Belman1957}, \cite{Sutton1999} và \cite{Puterman1994}.
 \section{Khái niệm}
 Một quá trình quyết định Markov (\textit{Markov Decision Process}) là một quá trình phần thưởng Markov (\textit{Markov Reward Process}) với các quyết định. Trong đó, tất cả các trạng thái đều thỏa mãn tính Markov. Cụ thể:
 \begin{dn}\rm
@@ -96,7 +96,7 @@ R(t)= \sum_{k=0}^{\infty} \gamma ^{k} r_{t+k}.
 Hệ số $\gamma$ cho phép xác định mức độ ảnh hưởng của những bước chuyển trạng thái tiếp theo đến giá trị phản hồi tại thời điểm đang xét. Giá trị của $\gamma$ cho phép điều chỉnh giai đoạn tác tử lấy các hàm tăng cường. Nếu $\gamma =0$, thì tác tử chỉ xem xét mục tiêu gần nhất, giá trị $\gamma$ càng gần với 1 thì tác tử sẽ quan tâm đến các mục tiêu xa hơn trong tương lai.
 Như vậy, thực chất bài toán quyết định Markov trong trường hợp này chính là việc lựa chọn các hành động để làm cực đại biểu thức R:
 \begin{align*}
-R=r_{0}+\gamma r_{1}+\gamma^{2}r_{2}+... \textit{với} 0<\gamma <1.
+R=r_{0}+\gamma r_{1}+\gamma^{2}r_{2}+... ~\textit{với}~ 0<\gamma <1.
 \end{align*}
 	Như trong hình vẽ minh họa sau:\\
 	
