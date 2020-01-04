@@ -17,10 +17,8 @@ Một quá trình quyết định Markov (\textit{Markov Decision Process}) là 
 \end{itemize}
 \begin{figure}[ht]
     \centering
-    \begin{center}
-    \includegraphics[scale=0.8]{ViduDnMDP.png}
-    \end{center}    
-    \caption{Quá trình chuyển trạng thái của sinh viên.}
+    \includegraphics[scale=0.6]{ViduDnMDP.png}
+    \caption{Quá trình chuyển trạng thái của máy dọn rác tự động.}
     \label{fig:ViduDnMDP}
 \end{figure}
 \end{dn}
@@ -78,7 +76,7 @@ Dựa vào tác tử và môi trường, chúng ta có thể định nghĩa các
 \textit{Chiến lược} định nghĩa cách thức tác tử học từ hành động tại thời điểm đưa ra. Chiến lược là một ánh xạ từ tập các trạng thái của môi trường đến tập các hành động được thực hiện khi môi trường ở trong các trạng thái đó. Nó tương ứng với tập các luật nhân quả trong lĩnh vực tâm lý học. Trong một số trường hợp, chiến lược có thể là một hàm đơn giản hoặc một bảng tra cứu, trong những trường hợp khác, nó có thể liên quan đến các tính toán mở rộng, ví dụ như một tiến trình tìm kiếm. Chiến lược là nhân của một tác tử với nhận thức rằng một mình nó đủ quyết định hành động.
 \newpage
 \subsubsection{Hàm phản hồi}
-Mục đích của tác tử là cực đại hóa các mục tiêu được tích lũy trong tương lai. Hàm phản hồi $R(t)$ được biểu diễn dưới dạng hàm số đối với các mục tiêu. Trong các bài toán quyết định Markov, hàm phản hồi sử dụng biểu thức dạng tổng. Các nhà nghiên cứu đã tìm ra ba biểu diễn thường được sử dụng của hàm phản hồi:
+Mục đích của tác tử là cực đại hóa các mục tiêu được tích lũy trong tương lai. Hàm phản hồi $R(t)$ được biểu diễn dưới dạng hàm số đối với các mục tiêu. Trong các bài toán quyết định Markov, hàm phản hồi sử dụng biểu thức dạng tổng. Các nhà nghiên cứu đã tìm ra hai biểu diễn thường được sử dụng của hàm phản hồi:
 \begin{itemize}
 \item \textit{Trong các bài toán số bước hữu hạn}
 
@@ -107,21 +105,14 @@ R=r_{0}+\gamma r_{1}+\gamma^{2}r_{2}+... ~\textit{với}~ 0<\gamma <1.
     \label{fig:tactumoitruong}
 \end{figure}
 \newpage
-\item \textit{Trong các bài toán số bước vô hạn mà hàm phản hồi không hội tụ}
-
-Trường hợp này xảy ra khi $\gamma = 1$. Giá trị trung bình của hàm phản hồi trên một bước thực hiện có thể hội tụ khi số bước tiến tới vô hạn. Trong trường hợp này hàm phản hồi được xác định bằng cách lấy trung bình của các giá trị tăng cường trong tương lai:
-\begin{align*}
-R(t)=\lim_{n\rightarrow \infty} \frac{1}{n}\sum_{k=0}^{\infty}r_{t+k}.
-\end{align*}
 \end{itemize}
-
 \subsubsection{Hàm giá trị}
 	Trong mọi trạng thái $s_{t}$, một tác tử lựa chọn một hành động dựa theo một chiến lược điều khiển, $ \pi: a_{t}=\pi(s_{t})$. Hàm giá trị tại một trạng thái của hệ thống được tính bằng kỳ vọng toán học của hàm phản hồi theo thời gian. Hàm giá trị là hàm của trạng thái và xác định mức độ thích hợp của chiến lược điều khiển $\pi$ đối với tác tử khi hệ thống đang ở trạng thái $s$. Hàm giá trị của trạng thái $s$ trong chiến lược $\pi$ được tính như sau:
 \begin{align*}
 V^{\pi}(s)=E_{\pi} \lbrace R_{t}|s_{t}=s\rbrace.
 \end{align*}
 	Bài toán tối ưu bao gồm việc xác định chiến lược điều khiển $\pi ^{*}$ sao cho hàm giá trị của trạng thái hệ thống đạt cực đại sau một số vô hạn hoặc hữu hạn các bước:
-	$$ \pi^{*}= \lbrace \pi_{0}(s_{0}),\pi_{1}(s_{1}),...,\pi_{N-1}(s_{N-1} \rbrace.$$
+	$$ \pi^{*}= \lbrace \pi_{0}(s_{0}),\pi_{1}(s_{1}),...,\pi_{N-1}(s_{N-1}) \rbrace.$$
 	Đối với bài toán có số bước vô hạn ta có hàm giá trị trạng thái:
 	$$ V^{\pi}(s)=E_{\pi} \lbrace R_{t}=\sum_{k=0}^{\infty}\gamma^{k}r_{t+k+1}|s_{t}=s \rbrace. $$
 	Sử dụng các phép biến đổi:
@@ -181,19 +172,19 @@ Q^{*}(s,a)~=~\displaystyle\max_{\pi} Q^{\pi}(s,a).
 \begin{dn}\rm 
 (Chiến lược tối ưu) $\pi$ được gọi là chiến lược tối ưu nếu $V^{\pi}(s) \geq V^{\pi '}(s), \forall s.$\\
 Xác định một chiến lược tối ưu: Một chiến lược tối ưu có thể được xác định bằng cách tìm hàm cực đại $Q^{*}(s,a)$:
-\begin{align}
+\begin{align*}
 \pi^{*}(a|s)=\begin{cases}
 1 & \text{ nếu } a=argmax_{a\in A}~Q^{*}(s,a) \\ 
 0 & \text{ ngược lại } 
 \end{cases}
-\end{align}
+\end{align*}
 Phương trình tối ưu Bellman cho $V^{*}(s)$:
-\begin{align}
+\begin{align*}
 V^{*}(s)= \displaystyle\max_{a}~ R_{a}(s)+\gamma \sum_{s'\in S}P_{a}(s,s')V^{*}(s').
-\end{align}
+\end{align*}
 Phương trình tối ưu Bellman cho $Q^{*}(a,s)$:
-\begin{align}
+\begin{align*}
 Q^{*}(s,a)=R_{a}(s)+\gamma \sum_{s'\in S}P_{a}(s,s') \displaystyle\max_{a'}~Q^{*}(s',a').
-\end{align}
+\end{align*}
 Phương trình tối ưu Bellman là một phương trình phi tuyến có thể giải bằng một số phương pháp: lặp giá trị và lặp chính sách.
 \end{dn}
